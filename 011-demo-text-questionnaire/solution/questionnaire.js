@@ -5,8 +5,8 @@ let header = document.createElement('div');
 if (NAME && (confirm('Предлагаю сыграть в игру. Отвечайте на вопросы - зарабатывайте очки. Поехали?'))) {
     header.innerHTML = `<h1>Привет, ${NAME}</h1>`;
     document.querySelector('.container').appendChild(header);
-    question1 = prompt('JavaScript это самостоятельный язык или библиотека скриптов языка Java?[Самостоятельный][Библиотека]')
-    if (question1 == 'Самостоятельный') {
+    question1 = (prompt('JavaScript это самостоятельный язык или библиотека скриптов языка Java?[самостоятельный][библиотека]')).toLowerCase()
+    if (question1 == 'самостоятельный') {
         points += 10
         let section1 = document.createElement('p')
         section1.innerHTML = `JavaScript это самостоятельный язык или библиотека скриптов языка Java?
@@ -15,7 +15,7 @@ if (NAME && (confirm('Предлагаю сыграть в игру. Отвеч�
         document.querySelector('.answers').appendChild(section1)
 
     }
-    question2 = prompt('Какой тип данных НЕ является примитивным в JavaScript?[boolean][float]')
+    question2 = (prompt('Какой тип данных НЕ является примитивным в JavaScript?[boolean][float]')).toLowerCase()
     if (question2 == 'float') {
         points += 10
         let section2 = document.createElement('p')
@@ -25,7 +25,7 @@ if (NAME && (confirm('Предлагаю сыграть в игру. Отвеч�
         document.querySelector('.answers').appendChild(section2)
 
     }
-    question3 = prompt('Какой метод не существует в JavaScript для вывода данных?[print][document.write]')
+    question3 = (prompt('Какой метод не существует в JavaScript для вывода данных?[print][document.write]')).toLowerCase()
     if (question3 == 'print') {
         points += 10
         let section3 = document.createElement('p')
@@ -35,7 +35,7 @@ if (NAME && (confirm('Предлагаю сыграть в игру. Отвеч�
         document.querySelector('.answers').appendChild(section3)
 
     }
-    question4 = prompt('Какой оператор используется для присваивания значений в JavaScript?[=][===]')
+    question4 = (prompt('Какой оператор используется для присваивания значений в JavaScript?[=][===]')).toLowerCase()
     if (question4 == '=') {
         points += 10
         let section4 = document.createElement('p')
@@ -45,17 +45,17 @@ if (NAME && (confirm('Предлагаю сыграть в игру. Отвеч�
         document.querySelector('.answers').appendChild(section4)
 
     }
-    question5 = prompt('Что вернет "typeof null"?[object][undefined]')
+    question5 = (prompt('Что вернет "typeof null"?[object][undefined]')).toLowerCase()
     if (question5 == 'object') {
         points += 10
         let section5 = document.createElement('p')
-        section5.innerHTML = `JavaScript это самостоятельный язык или библиотека скриптов языка Java?
+        section5.innerHTML = `К какому типу данных относится null в JavaScript?[null][object] 
 Правильный ответ - object. Всего очков: ${points}
 `
         document.querySelector('.answers').appendChild(section5)
 
     }
-    question6 = prompt('Какого управляющего оператора нет в JavaScript?[loop][switch]')
+    question6 = (prompt('Какого управляющего оператора нет в JavaScript?[loop][switch]')).toLowerCase()
     if (question6 == 'loop') {
         points += 10
         let section6 = document.createElement('p')
