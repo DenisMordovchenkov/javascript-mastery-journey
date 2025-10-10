@@ -1,0 +1,13 @@
+body {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+input[name='tip'] {
+    display: block;
+}
+
+.visibility {
+    display: none;
+}

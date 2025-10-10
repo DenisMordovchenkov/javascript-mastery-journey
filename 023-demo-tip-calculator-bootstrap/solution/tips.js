@@ -1,9 +1,16 @@
-const TIPS = 0.1;
-let amountOfPeople = parseInt(prompt('На сколько человек следует разделить счёт: '));
-let bill = parseFloat(prompt('Укажите сумму счёта: '));
+let isVisible = false;
+let tips = document.getElementById('tipsPerPeople');
 
-let billPerPerson = (bill / amountOfPeople);
 
-let tipsPerPerson = TIPS * billPerPerson
 
-alert(`Каждый должен оплатить по счёту - ${parseInt(billPerPerson)} и по ${parseInt(tipsPerPerson)} - на чай`)
+let changeVisibility = function () {
+    console.log(tips)
+    if (isVisible) {
+        tips.className.remove('.visibility')
+        isVisible = false
+    } else {
+        tips.className.add('.visibility')
+        isVisible = true
+
+    }
+}
