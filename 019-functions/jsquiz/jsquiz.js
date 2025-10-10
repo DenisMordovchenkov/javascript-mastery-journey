@@ -1,6 +1,6 @@
 //Переменная для подсчета и хранения очков
 let points = 0;
-
+let isAborted = false;
 const NAME = (prompt('Введите ваше имя: '));
 //Массив с вариантами вопросов
 const questions = [`JavaScript это самостоятельный язык или библиотека скриптов языка Java?`,
@@ -21,11 +21,10 @@ let drawSomeText = function (what, whereToDraw, element) {
 
 let drawQuestion = function (element, question, answers, rAnswer) {
     userAnswer = (prompt(`${question}. [${answers}]`))
-    //Почему-то не отрабатывает проверка ниже
-    // if (userAnswer === null) {
-    //     drawSomeText(`Пока, ${NAME}. Всего заработано очков - ${points}`)
-    // }
-    if (userAnswer.toLowerCase() == rAnswer) {
+    if (userAnswer === null) {
+        isAborted = true
+        drawSomeText(`Пока, ${NAME}. Всего заработано очков - ${points}`, '.container', 'div')
+    } else if (userAnswer.toLowerCase() == rAnswer) {
         points += 10
         let e = document.createElement(element)
         e.innerHTML = `Правильный ответ, ${NAME}. Всего очков - ${points} `
@@ -38,13 +37,13 @@ let drawQuestion = function (element, question, answers, rAnswer) {
 
 if (NAME && (confirm(`${NAME}, предлагаю сыграть в игру. Отвечайте на вопросы - зарабатывайте очки. Поехали?`))) {
     //При условии согласия и ввода имени отрисовываем приветствие и задаем вопросы
-    drawSomeText(`Привет, ${NAME}`, '.container', 'div')
-    drawQuestion('p', questions[0], answers[0], answers[0][0])
-    drawQuestion('p', questions[1], answers[1], answers[1][1])
-    drawQuestion('p', questions[2], answers[2], answers[2][0])
-    drawQuestion('p', questions[3], answers[3], answers[3][0])
-    drawQuestion('p', questions[4], answers[4], answers[4][1])
-    drawQuestion('p', questions[5], answers[5], answers[5][0])
+    if (isAborted) drawSomeText(`Привет, ${NAME}`, '.container', 'div')
+    if (!isAborted) drawQuestion('p', questions[0], answers[0], answers[0][0])
+    if (!isAborted) drawQuestion('p', questions[1], answers[1], answers[1][1])
+    if (!isAborted) drawQuestion('p', questions[2], answers[2], answers[2][0])
+    if (!isAborted) drawQuestion('p', questions[3], answers[3], answers[3][0])
+    if (!isAborted) drawQuestion('p', questions[4], answers[4], answers[4][1])
+    if (!isAborted) drawQuestion('p', questions[5], answers[5], answers[5][0])
 
     if (points === 0) {
         //Если нет ни одного верного ответа, проверка по количеству очков
