@@ -4,10 +4,8 @@ body {
     padding: 40px;
 }
 
-input[name='tip'] {
-    display: block;
-}
-
-.visibility {
-    display: none;
+input {
+    border-radius: 5px;
+    margin-bottom: 5px;
+    text-align: center;
 }
